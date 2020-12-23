@@ -18,12 +18,16 @@ module.exports = {
                     loader: "babel-loader"
                 }
             }, {
-                test: /\.css$/, 
+                test: /\.css$/,
                 use: [ // trabalhando com loader de css...
                     { loader: 'style-loader' },  // ele serve para importar files .css
                     { loader: 'css-loader' } // ele serve para imports especiais (.png, @import css externos)
                 ]
-
+            }, {
+                test: /.*\.(gif|png|jpe?g)$/i,
+                use: {
+                    loader: 'file-loader' //serve para 
+                }
             }
         ]
     }

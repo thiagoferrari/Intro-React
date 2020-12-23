@@ -1,4 +1,6 @@
-// aqui vamos fazer um código(arrow function) que o babel traduze para o browser:
-const soma = (a, b) => a + b;
+import React from 'react'
+import { render } from 'react-dom'
 
-alert(soma(11, 3));
+import App from './App'
+
+render(<App />, document.querySelector('#app'))

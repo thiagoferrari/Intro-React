@@ -12,11 +12,18 @@ module.exports = {
     module: {
         rules: [ // aqui: vamos usar o babel só para files .js [css usaremos outro loader]
             {
-                test: /\.js$/,
+                test: /\.js$/, //lembrando que aqui temos uma exp. Regular
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
                 }
+            }, {
+                test: /\.css$/, 
+                use: [ // trabalhando com loader de css...
+                    { loader: 'style-loader' },  // ele serve para importar files .css
+                    { loader: 'css-loader' } // ele serve para imports especiais (.png, @import css externos)
+                ]
+
             }
         ]
     }

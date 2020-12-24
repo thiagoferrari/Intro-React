@@ -1,10 +1,10 @@
 import React from 'react' // precisamos importar devido na linha 4 ter JSX
 import './App.css'
 
-import wall from './assets/wall.jpg'
+import TechList from './components/TechList'
 
 function App() {
-    return (<img src={wall} ></img>)
+    return (<TechList />)
 }
 
 export default App

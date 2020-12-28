@@ -29,12 +29,28 @@ class TechList extends Component {
         })
     }
 
+    /**
+     * REMOVENDO ITENS DA LISTA:
+     */
+    handleDelete = (tech) => {
+        /* veja que o próprio filter vai deletar 
+        (ele não retorna o item que foi clicado [innerHTML capturado]) */
+
+        this.setState({ techs: this.state.techs.filter(t => t !== tech) })
+    }
+
     render() {
         console.log('techs :>> ', this.state.techs);
         return ( // aqui precisamos de um container e <> é um, técnica chamada fragment
             <form onSubmit={this.handleSubmit}>
                 <ul>
-                    {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+                    {this.state.techs.map(tech => <li key={tech}>
+                        {tech}
+                        <button
+                            onClick={() => this.handleDelete(tech)} //function criada aqui para que o render não execute auto.
+                            type='button'
+                        >remover</button>
+                    </li>)}
                 </ul>
                 <input type='text'
                     onChange={this.handleInputChange}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import TechItem from './TechItem'
+
 class TechList extends Component {
     // aqui posso usar constructor, mas usamos plugin loader no babel [+clean]
     state = { /* state É IMUTÁVEL (até nas propriedades) */
@@ -41,25 +43,34 @@ class TechList extends Component {
 
     render() {
         console.log('techs :>> ', this.state.techs);
-        return ( // aqui precisamos de um container e <> é um, técnica chamada fragment
+        return (
             <form onSubmit={this.handleSubmit}>
+
                 <ul>
-                    {this.state.techs.map(tech => <li key={tech}>
-                        {tech}
-                        <button
-                            onClick={() => this.handleDelete(tech)} //function criada aqui para que o render não execute auto.
-                            type='button'
-                        >remover</button>
-                    </li>)}
+                    {this.state.techs.map(tech => (
+                        // aqui vamos criar um componente para mostrar os itens:
+                        <TechItem // abaixo passamos props. ao componente (params. a função)
+                            key={tech}
+                            tech={tech}
+                            onDelete={() => this.handleDelete(tech)}
+                        />
+                    ))}
                 </ul>
+
                 <input type='text'
                     onChange={this.handleInputChange}
                     value={this.state.newTech}
                 />
+
                 <button type='submit'>Enviar</button>
             </form>
         )
     }
 }
+
+/**
+ * APRENDIZADO: AS FUNÇÕES QUE VÃO MANIPULAR O STATE PRECISAM ESTAR NO MESMO ARQUIVO QUE O STATE ESTÁ,
+ *  E SE PRECISAR USAR ESSA FUNÇÃO EM OUTRO COMPONENTE, PASSAR COMO PROPS. (PARÂMETROS)
+ */
 
 export default TechList

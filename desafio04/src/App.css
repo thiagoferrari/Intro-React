@@ -1,5 +1,47 @@
 body {
-    background: red;
+    background: rgb(228, 228, 228);
     color: #FFF;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background: blue;
+    padding: 15px;
+}
+
+.fb {
+    display: inline;
+}
+
+.login {
+    float: right;
+}
+
+section {
+    background-color: green;
+}
+
+.avatar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar-img {
+    width: 5%;
+}
+
+.PostList {
+    border-style: solid;
+    border-width: 5px;
+    border-color: greenyellow;
+    background: rgb(100, 97, 97);
+    border-radius: 10px;
+}
+
+.Post {
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    background: gray;
+    border-radius: 10px;
 }
